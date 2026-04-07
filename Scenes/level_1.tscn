@@ -2,6 +2,45 @@
 
 [ext_resource type="PackedScene" uid="uid://jej4m5nvdhgv" path="res://Scenes/player.tscn" id="1_vk57k"]
 [ext_resource type="Texture2D" uid="uid://bm421imjiqj6v" path="res://Assets/Terrain/Terrain (16x16).png" id="2_8ffim"]
+[ext_resource type="Texture2D" uid="uid://u05e5uxyjop4" path="res://Assets/Background/Yellow.png" id="3_xfk5q"]
+
+[sub_resource type="Animation" id="Animation_xfk5q"]
+resource_name = "Looping"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Yellow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-299, -222), Vector2(-363, -158)]
+}
+
+[sub_resource type="Animation" id="Animation_7p6j4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Yellow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-299, -222)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6444e"]
+_data = {
+&"Looping": SubResource("Animation_xfk5q"),
+&"RESET": SubResource("Animation_7p6j4")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfk5q"]
 texture = ExtResource("2_8ffim")
@@ -230,6 +269,19 @@ sources/0 = SubResource("TileSetAtlasSource_xfk5q")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=521740516]
 zoom = Vector2(3.77, 3.77)
+
+[node name="Yellow" type="TextureRect" parent="Player/Camera2D" unique_id=1078907435]
+z_index = -10
+offset_left = -299.0
+offset_top = -222.0
+offset_right = 448.0
+offset_bottom = 262.0
+texture = ExtResource("3_xfk5q")
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Camera2D" unique_id=432229000]
+libraries/ = SubResource("AnimationLibrary_6444e")
+autoplay = &"Looping"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1435479244]
 tile_map_data = PackedByteArray("AAAPAAkAAAACAAIAAAAPAAgAAAACAAEAAAAPAAcAAAACAAAAAAAOAAkAAAABAAIAAAAOAAgAAAABAAEAAAAOAAcAAAABAAAAAAANAAkAAAABAAIAAAANAAgAAAABAAEAAAANAAcAAAABAAAAAAAMAAkAAAABAAIAAAAMAAgAAAABAAEAAAAMAAcAAAABAAAAAAALAAkAAAABAAIAAAALAAgAAAABAAEAAAALAAcAAAABAAAAAAAKAAkAAAABAAIAAAAKAAgAAAABAAEAAAAKAAcAAAABAAAAAAAJAAkAAAABAAIAAAAJAAgAAAABAAEAAAAJAAcAAAABAAAAAAAIAAkAAAABAAIAAAAIAAgAAAABAAEAAAAIAAcAAAABAAAAAAAHAAkAAAABAAIAAAAHAAgAAAABAAEAAAAHAAcAAAABAAAAAAAGAAkAAAABAAIAAAAGAAgAAAABAAEAAAAGAAcAAAABAAAAAAAFAAkAAAABAAIAAAAFAAgAAAABAAEAAAAFAAcAAAABAAAAAAAEAAkAAAABAAIAAAAEAAgAAAABAAEAAAAEAAcAAAABAAAAAAADAAkAAAABAAIAAAADAAgAAAABAAEAAAADAAcAAAABAAAAAAACAAkAAAABAAIAAAACAAgAAAABAAEAAAACAAcAAAABAAAAAAABAAkAAAABAAIAAAABAAgAAAABAAEAAAABAAcAAAABAAAAAAAAAAkAAAABAAIAAAAAAAgAAAABAAEAAAAAAAcAAAABAAAAAAD//wkAAAABAAIAAAD//wgAAAABAAEAAAD//wcAAAABAAAAAAD+/wkAAAABAAIAAAD+/wgAAAABAAEAAAD+/wcAAAABAAAAAAD9/wkAAAABAAIAAAD9/wgAAAABAAEAAAD9/wcAAAABAAAAAAD8/wkAAAABAAIAAAD8/wgAAAABAAEAAAD8/wcAAAABAAAAAAD7/wkAAAABAAIAAAD7/wgAAAABAAEAAAD7/wcAAAABAAAAAAD6/wkAAAABAAIAAAD6/wgAAAABAAEAAAD6/wcAAAABAAAAAAD5/wkAAAABAAIAAAD5/wgAAAABAAEAAAD4/wkAAAABAAIAAAD4/wgAAAABAAEAAAD4/wcAAAABAAAAAAD3/wkAAAABAAIAAAD3/wgAAAABAAEAAAD3/wcAAAABAAAAAAD2/wkAAAABAAIAAAD2/wgAAAABAAEAAAD2/wcAAAABAAAAAAD1/wkAAAABAAIAAAD1/wgAAAABAAEAAAD1/wcAAAABAAAAAAD0/wkAAAABAAIAAAD0/wgAAAABAAEAAAD0/wcAAAABAAAAAADz/wkAAAABAAIAAADz/wgAAAABAAEAAADz/wcAAAABAAAAAADy/wkAAAABAAIAAADy/wgAAAABAAEAAADy/wcAAAABAAAAAADx/wkAAAABAAIAAADx/wgAAAABAAEAAADx/wcAAAABAAAAAADw/wkAAAABAAIAAADw/wgAAAABAAEAAADw/wcAAAABAAAAAADv/wkAAAAAAAIAAADv/wgAAAAAAAEAAADv/wcAAAAAAAAAAAD5/wcAAAABAAAAAAAIAAQAAAACAAIAAAAIAAMAAAACAAAAAAAHAAQAAAABAAIAAAAHAAMAAAABAAAAAAAGAAQAAAABAAIAAAAGAAMAAAABAAAAAAAFAAQAAAABAAIAAAAFAAMAAAABAAAAAAAEAAQAAAAAAAIAAAAEAAMAAAAAAAAAAAD6/wQAAAACAAIAAAD6/wMAAAACAAAAAAD5/wQAAAABAAIAAAD5/wMAAAABAAAAAAD4/wQAAAABAAIAAAD4/wMAAAABAAAAAAD3/wQAAAABAAIAAAD3/wMAAAABAAAAAAD2/wQAAAAAAAIAAAD2/wMAAAAAAAAAAAD+////AAACAAIAAAD+//7/AAACAAAAAAD9////AAABAAIAAAD9//7/AAABAAAAAAD8////AAABAAIAAAD8//7/AAABAAAAAAD7////AAAAAAIAAAD7//7/AAAAAAAAAAA=")
