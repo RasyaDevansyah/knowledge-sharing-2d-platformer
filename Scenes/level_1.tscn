@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bu6sq0m3t8ypx"]
 
+[ext_resource type="Script" uid="uid://l8jv0vxihujn" path="res://Scenes/player.gd" id="1_8ffim"]
 [ext_resource type="Texture2D" uid="uid://csc2tjt7qfxch" path="res://Assets/Main Characters/Ninja Frog/Idle (32x32).png" id="1_vk57k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ffim"]
@@ -92,6 +93,8 @@ animations = [{
 [node name="Level1" type="Node2D" unique_id=647098866]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=604529056]
+script = ExtResource("1_8ffim")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1526433628]
 shape = SubResource("CapsuleShape2D_8ffim")
