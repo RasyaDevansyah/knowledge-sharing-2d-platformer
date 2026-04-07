@@ -228,7 +228,7 @@ sources/0 = SubResource("TileSetAtlasSource_xfk5q")
 
 [node name="Player" parent="." unique_id=1827553538 instance=ExtResource("1_vk57k")]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=521740516]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=521740516]
 zoom = Vector2(3.77, 3.77)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1435479244]
