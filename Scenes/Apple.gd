@@ -4,13 +4,13 @@ extends Area2D
 
 func _on_body_entered(_body: Node2D) -> void:
 	animated_sprite_2d.play("collected")
+	GlobalPoints.points += 1
 	
-	
-	pass # Replace with function body.
+	set_deferred("monitoring", false)
+
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "collected":
 		queue_free()
 	
-	pass # Replace with function body.

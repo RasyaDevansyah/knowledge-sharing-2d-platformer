@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bm421imjiqj6v" path="res://Assets/Terrain/Terrain (16x16).png" id="2_8ffim"]
 [ext_resource type="Texture2D" uid="uid://u05e5uxyjop4" path="res://Assets/Background/Yellow.png" id="3_xfk5q"]
 [ext_resource type="PackedScene" uid="uid://c51rg16rpunn0" path="res://Scenes/apple.tscn" id="4_7p6j4"]
+[ext_resource type="Script" uid="uid://chuy05qeqwrh7" path="res://Scenes/point_counter.gd" id="5_6444e"]
 
 [sub_resource type="Animation" id="Animation_xfk5q"]
 resource_name = "Looping"
@@ -296,3 +297,15 @@ position = Vector2(107, 33)
 
 [node name="Apple3" parent="." unique_id=1370523578 instance=ExtResource("4_7p6j4")]
 position = Vector2(-123, 34)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1309539101]
+
+[node name="PointCounter" type="Label" parent="CanvasLayer" unique_id=799125587]
+offset_left = 115.0
+offset_top = 58.0
+offset_right = 155.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "0"
+script = ExtResource("5_6444e")
