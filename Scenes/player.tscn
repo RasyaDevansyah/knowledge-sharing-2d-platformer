@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://csc2tjt7qfxch" path="res://Assets/Main Characters/Ninja Frog/Idle (32x32).png" id="3_3smsa"]
 [ext_resource type="Texture2D" uid="uid://diglt5ujblvlu" path="res://Assets/Main Characters/Ninja Frog/Jump (32x32).png" id="4_8erm5"]
 [ext_resource type="Texture2D" uid="uid://dp0bajae8dh6r" path="res://Assets/Main Characters/Ninja Frog/Run (32x32).png" id="5_f1ek2"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="7_3smsa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ffim"]
 
@@ -208,7 +209,6 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=1827553538]
 script = ExtResource("1_fkybt")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=631395545]
 shape = SubResource("CapsuleShape2D_8ffim")
@@ -218,3 +218,34 @@ position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_6ioyp")
 animation = &"fall"
 autoplay = "idle"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=260543541]
+zoom = Vector2(3.77, 3.77)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=617241616]
+
+[node name="Virtual Joystick" parent="CanvasLayer" unique_id=889830065 instance=ExtResource("7_3smsa")]
+offset_left = 67.0
+offset_top = -355.0
+offset_right = 454.0
+offset_bottom = -26.0
+joystick_mode = 1
+action_left = "left"
+action_right = "right"
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1161688387]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -415.0
+offset_top = -270.0
+offset_right = -114.0
+offset_bottom = -115.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Jump"
+
+[connection signal="button_down" from="CanvasLayer/Button" to="." method="check_jump"]

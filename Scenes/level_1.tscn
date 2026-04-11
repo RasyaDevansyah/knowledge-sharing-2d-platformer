@@ -2,47 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://jej4m5nvdhgv" path="res://Scenes/player.tscn" id="1_vk57k"]
 [ext_resource type="Texture2D" uid="uid://bm421imjiqj6v" path="res://Assets/Terrain/Terrain (16x16).png" id="2_8ffim"]
-[ext_resource type="Texture2D" uid="uid://u05e5uxyjop4" path="res://Assets/Background/Yellow.png" id="3_xfk5q"]
 [ext_resource type="PackedScene" uid="uid://c51rg16rpunn0" path="res://Scenes/apple.tscn" id="4_7p6j4"]
 [ext_resource type="Script" uid="uid://chuy05qeqwrh7" path="res://Scenes/point_counter.gd" id="5_6444e"]
-
-[sub_resource type="Animation" id="Animation_xfk5q"]
-resource_name = "Looping"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Yellow:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-299, -222), Vector2(-363, -158)]
-}
-
-[sub_resource type="Animation" id="Animation_7p6j4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Yellow:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-299, -222)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6444e"]
-_data = {
-&"Looping": SubResource("Animation_xfk5q"),
-&"RESET": SubResource("Animation_7p6j4")
-}
+[ext_resource type="Texture2D" uid="uid://u05e5uxyjop4" path="res://Assets/Background/Yellow.png" id="5_evi0p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfk5q"]
 texture = ExtResource("2_8ffim")
@@ -265,25 +227,47 @@ terrain_set_0/terrain_0/name = "Walls"
 terrain_set_0/terrain_0/color = Color(1, 0.24897173, 0.3273527, 1)
 sources/0 = SubResource("TileSetAtlasSource_xfk5q")
 
+[sub_resource type="Animation" id="Animation_xfk5q"]
+resource_name = "Looping"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CanvasLayer/Yellow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-299, -222), Vector2(-363, -158)]
+}
+
+[sub_resource type="Animation" id="Animation_7p6j4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CanvasLayer/Yellow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-299, -222)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lsmp6"]
+_data = {
+&"Looping": SubResource("Animation_xfk5q"),
+&"RESET": SubResource("Animation_7p6j4")
+}
+
 [node name="Level1" type="Node2D" unique_id=647098866]
 
 [node name="Player" parent="." unique_id=1827553538 instance=ExtResource("1_vk57k")]
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=521740516]
-zoom = Vector2(3.77, 3.77)
-
-[node name="Yellow" type="TextureRect" parent="Player/Camera2D" unique_id=1078907435]
-z_index = -10
-offset_left = -299.0
-offset_top = -222.0
-offset_right = 448.0
-offset_bottom = 262.0
-texture = ExtResource("3_xfk5q")
-stretch_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Camera2D" unique_id=432229000]
-libraries/ = SubResource("AnimationLibrary_6444e")
-autoplay = &"Looping"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1435479244]
 tile_map_data = PackedByteArray("AAAPAAkAAAACAAIAAAAPAAgAAAACAAEAAAAPAAcAAAACAAAAAAAOAAkAAAABAAIAAAAOAAgAAAABAAEAAAAOAAcAAAABAAAAAAANAAkAAAABAAIAAAANAAgAAAABAAEAAAANAAcAAAABAAAAAAAMAAkAAAABAAIAAAAMAAgAAAABAAEAAAAMAAcAAAABAAAAAAALAAkAAAABAAIAAAALAAgAAAABAAEAAAALAAcAAAABAAAAAAAKAAkAAAABAAIAAAAKAAgAAAABAAEAAAAKAAcAAAABAAAAAAAJAAkAAAABAAIAAAAJAAgAAAABAAEAAAAJAAcAAAABAAAAAAAIAAkAAAABAAIAAAAIAAgAAAABAAEAAAAIAAcAAAABAAAAAAAHAAkAAAABAAIAAAAHAAgAAAABAAEAAAAHAAcAAAABAAAAAAAGAAkAAAABAAIAAAAGAAgAAAABAAEAAAAGAAcAAAABAAAAAAAFAAkAAAABAAIAAAAFAAgAAAABAAEAAAAFAAcAAAABAAAAAAAEAAkAAAABAAIAAAAEAAgAAAABAAEAAAAEAAcAAAABAAAAAAADAAkAAAABAAIAAAADAAgAAAABAAEAAAADAAcAAAABAAAAAAACAAkAAAABAAIAAAACAAgAAAABAAEAAAACAAcAAAABAAAAAAABAAkAAAABAAIAAAABAAgAAAABAAEAAAABAAcAAAABAAAAAAAAAAkAAAABAAIAAAAAAAgAAAABAAEAAAAAAAcAAAABAAAAAAD//wkAAAABAAIAAAD//wgAAAABAAEAAAD//wcAAAABAAAAAAD+/wkAAAABAAIAAAD+/wgAAAABAAEAAAD+/wcAAAABAAAAAAD9/wkAAAABAAIAAAD9/wgAAAABAAEAAAD9/wcAAAABAAAAAAD8/wkAAAABAAIAAAD8/wgAAAABAAEAAAD8/wcAAAABAAAAAAD7/wkAAAABAAIAAAD7/wgAAAABAAEAAAD7/wcAAAABAAAAAAD6/wkAAAABAAIAAAD6/wgAAAABAAEAAAD6/wcAAAABAAAAAAD5/wkAAAABAAIAAAD5/wgAAAABAAEAAAD4/wkAAAABAAIAAAD4/wgAAAABAAEAAAD4/wcAAAABAAAAAAD3/wkAAAABAAIAAAD3/wgAAAABAAEAAAD3/wcAAAABAAAAAAD2/wkAAAABAAIAAAD2/wgAAAABAAEAAAD2/wcAAAABAAAAAAD1/wkAAAABAAIAAAD1/wgAAAABAAEAAAD1/wcAAAABAAAAAAD0/wkAAAABAAIAAAD0/wgAAAABAAEAAAD0/wcAAAABAAAAAADz/wkAAAABAAIAAADz/wgAAAABAAEAAADz/wcAAAABAAAAAADy/wkAAAABAAIAAADy/wgAAAABAAEAAADy/wcAAAABAAAAAADx/wkAAAABAAIAAADx/wgAAAABAAEAAADx/wcAAAABAAAAAADw/wkAAAABAAIAAADw/wgAAAABAAEAAADw/wcAAAABAAAAAADv/wkAAAAAAAIAAADv/wgAAAAAAAEAAADv/wcAAAAAAAAAAAD5/wcAAAABAAAAAAAIAAQAAAACAAIAAAAIAAMAAAACAAAAAAAHAAQAAAABAAIAAAAHAAMAAAABAAAAAAAGAAQAAAABAAIAAAAGAAMAAAABAAAAAAAFAAQAAAABAAIAAAAFAAMAAAABAAAAAAAEAAQAAAAAAAIAAAAEAAMAAAAAAAAAAAD6/wQAAAACAAIAAAD6/wMAAAACAAAAAAD5/wQAAAABAAIAAAD5/wMAAAABAAAAAAD4/wQAAAABAAIAAAD4/wMAAAABAAAAAAD3/wQAAAABAAIAAAD3/wMAAAABAAAAAAD2/wQAAAAAAAIAAAD2/wMAAAAAAAAAAAD+////AAACAAIAAAD+//7/AAACAAAAAAD9////AAABAAIAAAD9//7/AAABAAAAAAD8////AAABAAIAAAD8//7/AAABAAAAAAD7////AAAAAAIAAAD7//7/AAAAAAAAAAA=")
@@ -299,6 +283,7 @@ position = Vector2(107, 33)
 position = Vector2(-123, 34)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1309539101]
+layer = -1
 
 [node name="PointCounter" type="Label" parent="CanvasLayer" unique_id=799125587]
 offset_left = 115.0
@@ -309,3 +294,23 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "0"
 script = ExtResource("5_6444e")
+
+[node name="Yellow" type="TextureRect" parent="CanvasLayer" unique_id=849241881]
+z_index = -10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1259.0
+offset_top = -762.0
+offset_right = 1118.0
+offset_bottom = 588.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_evi0p")
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1388457101]
+libraries/ = SubResource("AnimationLibrary_lsmp6")
+autoplay = &"Looping"
