@@ -207,6 +207,8 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wgy"]
+
 [node name="Player" type="CharacterBody2D" unique_id=1827553538]
 script = ExtResource("1_fkybt")
 
@@ -225,10 +227,11 @@ zoom = Vector2(3.77, 3.77)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=617241616]
 
 [node name="Virtual Joystick" parent="CanvasLayer" unique_id=889830065 instance=ExtResource("7_3smsa")]
-offset_left = 67.0
-offset_top = -355.0
-offset_right = 454.0
-offset_bottom = -26.0
+offset_left = 80.00001
+offset_top = -562.0
+offset_right = 450.4142
+offset_bottom = -264.95862
+scale = Vector2(1.69, 1.69)
 joystick_mode = 1
 action_left = "left"
 action_right = "right"
@@ -248,4 +251,9 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Jump"
 
-[connection signal="button_down" from="CanvasLayer/Button" to="." method="check_jump"]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/Button" unique_id=579088062]
+position = Vector2(151, 77)
+scale = Vector2(16.018698, 8.774921)
+shape = SubResource("RectangleShape2D_x3wgy")
+
+[connection signal="pressed" from="CanvasLayer/Button/TouchScreenButton" to="." method="check_jump"]

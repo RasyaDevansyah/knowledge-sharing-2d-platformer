@@ -13,7 +13,7 @@ config_version=5
 config/name="KnowledgeSharing2DPlatformer"
 run/main_scene="uid://bu6sq0m3t8ypx"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cflhe0tgea0m1"
 
 [autoload]
 
@@ -23,6 +23,8 @@ GlobalPoints="*uid://d05m583iyg8ag"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/handheld/orientation=4
 
 [input]
@@ -48,7 +50,6 @@ jump={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
-pointing/emulate_mouse_from_touch=false
 
 [physics]
 
