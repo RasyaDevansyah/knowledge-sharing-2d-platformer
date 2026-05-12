@@ -6,44 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c51rg16rpunn0" path="res://Scenes/apple.tscn" id="4_7p6j4"]
 [ext_resource type="Script" uid="uid://chuy05qeqwrh7" path="res://Scenes/point_counter.gd" id="5_6444e"]
 
-[sub_resource type="Animation" id="Animation_xfk5q"]
-resource_name = "Looping"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../CanvasLayer/Yellow:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-269, -151), Vector2(-333, -87)]
-}
-
-[sub_resource type="Animation" id="Animation_7p6j4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../CanvasLayer/Yellow:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-269, -151)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6444e"]
-_data = {
-&"Looping": SubResource("Animation_xfk5q"),
-&"RESET": SubResource("Animation_7p6j4")
-}
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfk5q"]
 texture = ExtResource("2_8ffim")
 0:0/0 = 0
@@ -265,16 +227,50 @@ terrain_set_0/terrain_0/name = "Walls"
 terrain_set_0/terrain_0/color = Color(1, 0.24897173, 0.3273527, 1)
 sources/0 = SubResource("TileSetAtlasSource_xfk5q")
 
+[sub_resource type="Animation" id="Animation_xfk5q"]
+resource_name = "Looping"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../CanvasLayer/Yellow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-269, -151), Vector2(-333, -87)]
+}
+
+[sub_resource type="Animation" id="Animation_7p6j4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../CanvasLayer/Yellow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-269, -151)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6444e"]
+_data = {
+&"Looping": SubResource("Animation_xfk5q"),
+&"RESET": SubResource("Animation_7p6j4")
+}
+
 [node name="Level1" type="Node2D" unique_id=647098866]
 
 [node name="Player" parent="." unique_id=1827553538 instance=ExtResource("1_vk57k")]
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=521740516]
 zoom = Vector2(3.77, 3.77)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Camera2D" unique_id=432229000]
-libraries/ = SubResource("AnimationLibrary_6444e")
-autoplay = &"Looping"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1435479244]
 tile_map_data = PackedByteArray("AAAPAAkAAAACAAIAAAAPAAgAAAACAAEAAAAPAAcAAAACAAAAAAAOAAkAAAABAAIAAAAOAAgAAAABAAEAAAAOAAcAAAABAAAAAAANAAkAAAABAAIAAAANAAgAAAABAAEAAAANAAcAAAABAAAAAAAMAAkAAAABAAIAAAAMAAgAAAABAAEAAAAMAAcAAAABAAAAAAALAAkAAAABAAIAAAALAAgAAAABAAEAAAALAAcAAAABAAAAAAAKAAkAAAABAAIAAAAKAAgAAAABAAEAAAAKAAcAAAABAAAAAAAJAAkAAAABAAIAAAAJAAgAAAABAAEAAAAJAAcAAAABAAAAAAAIAAkAAAABAAIAAAAIAAgAAAABAAEAAAAIAAcAAAABAAAAAAAHAAkAAAABAAIAAAAHAAgAAAABAAEAAAAHAAcAAAABAAAAAAAGAAkAAAABAAIAAAAGAAgAAAABAAEAAAAGAAcAAAABAAAAAAAFAAkAAAABAAIAAAAFAAgAAAABAAEAAAAFAAcAAAABAAAAAAAEAAkAAAABAAIAAAAEAAgAAAABAAEAAAAEAAcAAAABAAAAAAADAAkAAAABAAIAAAADAAgAAAABAAEAAAADAAcAAAABAAAAAAACAAkAAAABAAIAAAACAAgAAAABAAEAAAACAAcAAAABAAAAAAABAAkAAAABAAIAAAABAAgAAAABAAEAAAABAAcAAAABAAAAAAAAAAkAAAABAAIAAAAAAAgAAAABAAEAAAAAAAcAAAABAAAAAAD//wkAAAABAAIAAAD//wgAAAABAAEAAAD//wcAAAABAAAAAAD+/wkAAAABAAIAAAD+/wgAAAABAAEAAAD+/wcAAAABAAAAAAD9/wkAAAABAAIAAAD9/wgAAAABAAEAAAD9/wcAAAABAAAAAAD8/wkAAAABAAIAAAD8/wgAAAABAAEAAAD8/wcAAAABAAAAAAD7/wkAAAABAAIAAAD7/wgAAAABAAEAAAD7/wcAAAABAAAAAAD6/wkAAAABAAIAAAD6/wgAAAABAAEAAAD6/wcAAAABAAAAAAD5/wkAAAABAAIAAAD5/wgAAAABAAEAAAD4/wkAAAABAAIAAAD4/wgAAAABAAEAAAD4/wcAAAABAAAAAAD3/wkAAAABAAIAAAD3/wgAAAABAAEAAAD3/wcAAAABAAAAAAD2/wkAAAABAAIAAAD2/wgAAAABAAEAAAD2/wcAAAABAAAAAAD1/wkAAAABAAIAAAD1/wgAAAABAAEAAAD1/wcAAAABAAAAAAD0/wkAAAABAAIAAAD0/wgAAAABAAEAAAD0/wcAAAABAAAAAADz/wkAAAABAAIAAADz/wgAAAABAAEAAADz/wcAAAABAAAAAADy/wkAAAABAAIAAADy/wgAAAABAAEAAADy/wcAAAABAAAAAADx/wkAAAABAAIAAADx/wgAAAABAAEAAADx/wcAAAABAAAAAADw/wkAAAABAAIAAADw/wgAAAABAAEAAADw/wcAAAABAAAAAADv/wkAAAAAAAIAAADv/wgAAAAAAAEAAADv/wcAAAAAAAAAAAD5/wcAAAABAAAAAAAIAAQAAAACAAIAAAAIAAMAAAACAAAAAAAHAAQAAAABAAIAAAAHAAMAAAABAAAAAAAGAAQAAAABAAIAAAAGAAMAAAABAAAAAAAFAAQAAAABAAIAAAAFAAMAAAABAAAAAAAEAAQAAAAAAAIAAAAEAAMAAAAAAAAAAAD6/wQAAAACAAIAAAD6/wMAAAACAAAAAAD5/wQAAAABAAIAAAD5/wMAAAABAAAAAAD4/wQAAAABAAIAAAD4/wMAAAABAAAAAAD3/wQAAAABAAIAAAD3/wMAAAABAAAAAAD2/wQAAAAAAAIAAAD2/wMAAAAAAAAAAAD+////AAACAAIAAAD+//7/AAACAAAAAAD9////AAABAAIAAAD9//7/AAABAAAAAAD8////AAABAAIAAAD8//7/AAABAAAAAAD7////AAAAAAIAAAD7//7/AAAAAAAAAAA=")
@@ -307,11 +303,16 @@ z_index = -10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -269.0
-offset_top = -151.0
-offset_right = 442.11133
-offset_bottom = 249.0
+offset_left = -293.9895
+offset_top = -126.010506
+offset_right = 417.12183
+offset_bottom = 273.9895
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_xfk5q")
 stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=432229000]
+root_node = NodePath("../../Player/Camera2D")
+libraries/ = SubResource("AnimationLibrary_6444e")
+autoplay = &"Looping"
