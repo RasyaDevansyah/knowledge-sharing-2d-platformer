@@ -2,5 +2,5 @@ extends Label
 
 
 func _physics_process(_delta: float) -> void:
-	text = str(GlobalPoints.points)
+	text = str(GlobalPoints.points) + '/' + str(GlobalPoints.totalPoints)
 	

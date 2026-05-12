@@ -2,6 +2,10 @@ extends Area2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+
+func _ready() -> void:
+	GlobalPoints.totalPoints += 1
+
 func _on_body_entered(_body: Node2D) -> void:
 	animated_sprite_2d.play("collected")
 	GlobalPoints.points += 1
