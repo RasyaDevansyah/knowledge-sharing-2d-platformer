@@ -13,14 +13,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Yellow:position")
+tracks/0/path = NodePath("../../CanvasLayer/Yellow:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-299, -222), Vector2(-363, -158)]
+"values": [Vector2(-269, -151), Vector2(-333, -87)]
 }
 
 [sub_resource type="Animation" id="Animation_7p6j4"]
@@ -28,14 +28,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Yellow:position")
+tracks/0/path = NodePath("../../CanvasLayer/Yellow:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-299, -222)]
+"values": [Vector2(-269, -151)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6444e"]
@@ -272,15 +272,6 @@ sources/0 = SubResource("TileSetAtlasSource_xfk5q")
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=521740516]
 zoom = Vector2(3.77, 3.77)
 
-[node name="Yellow" type="TextureRect" parent="Player/Camera2D" unique_id=1078907435]
-z_index = -10
-offset_left = -299.0
-offset_top = -222.0
-offset_right = 448.0
-offset_bottom = 262.0
-texture = ExtResource("3_xfk5q")
-stretch_mode = 1
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Camera2D" unique_id=432229000]
 libraries/ = SubResource("AnimationLibrary_6444e")
 autoplay = &"Looping"
@@ -299,6 +290,7 @@ position = Vector2(107, 33)
 position = Vector2(-123, 34)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1309539101]
+layer = -1
 
 [node name="PointCounter" type="Label" parent="CanvasLayer" unique_id=799125587]
 offset_left = 115.0
@@ -309,3 +301,17 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "0"
 script = ExtResource("5_6444e")
+
+[node name="Yellow" type="TextureRect" parent="CanvasLayer" unique_id=1078907435]
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -269.0
+offset_top = -151.0
+offset_right = 442.11133
+offset_bottom = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_xfk5q")
+stretch_mode = 1
