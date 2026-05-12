@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b7sph8o8tax4g"]
 
-[ext_resource type="Texture2D" uid="uid://u05e5uxyjop4" path="res://Assets/Background/Yellow.png" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://dao4qtye80lgt" path="res://Assets/Background/Green.png" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://cd5wf1rder236" path="res://Assets/Menu/Levels/01.png" id="2_48xlc"]
 
 [sub_resource type="Animation" id="Animation_28flt"]
 resource_name = "Looping"
@@ -9,7 +10,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Yellow:position")
+tracks/0/path = NodePath("Yellow:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +25,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Yellow:position")
+tracks/0/path = NodePath("Yellow:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -45,11 +46,36 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
+bg_color = Color(0.12941177, 0.12156863, 0.1882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xlc"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.12941177, 0.12156863, 0.1882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ehe0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce3w2"]
 
 [node name="MainMenu" type="Control" unique_id=1290389421]
 layout_mode = 3
@@ -74,7 +100,6 @@ texture = ExtResource("1_28flt")
 stretch_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1988404737]
-root_node = NodePath("")
 libraries/ = SubResource("AnimationLibrary_1ehe0")
 autoplay = &"Looping"
 
@@ -93,24 +118,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -166.95001
-offset_top = -126.0
-offset_right = 166.94995
-offset_bottom = 126.0
+offset_left = -167.0
+offset_top = -99.0
+offset_right = 166.8999
+offset_bottom = 153.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 38
-alignment = 1
+theme_override_constants/separation = 17
 
 [node name="PlayButton" type="Button" parent="MenuUI/VBoxContainer" unique_id=1966714100]
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 text = "Play"
 
 [node name="QuitButton" type="Button" parent="MenuUI/VBoxContainer" unique_id=1916124537]
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
-theme_override_styles/pressed = SubResource("StyleBoxFlat_28flt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_48xlc")
 text = "Quit"
 
 [node name="Label" type="Label" parent="MenuUI" unique_id=1103536240]
@@ -129,3 +154,54 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "Platform Adventure"
+
+[node name="LevelsUI" type="Control" parent="." unique_id=1232595552]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LevelsUI" unique_id=1829931122]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -274.0
+offset_right = 287.0
+offset_bottom = -191.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Platform Adventure"
+
+[node name="VBoxContainer" type="GridContainer" parent="LevelsUI" unique_id=1008068212]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -99.0
+offset_right = 166.8999
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="Button" type="Button" parent="LevelsUI/VBoxContainer" unique_id=1058623875]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ehe0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ce3w2")
+icon = ExtResource("2_48xlc")
+flat = true
+icon_alignment = 1
+expand_icon = true
