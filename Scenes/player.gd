@@ -5,10 +5,13 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -450.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-
+var isDead : bool = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	if isDead:
+		return
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -18,7 +21,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("left", "right")
+	var direction := Input.get_axis("left", "right") if GlobalPoints.currentState != GlobalPoints.levelState.Win else 0.0
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -44,6 +47,18 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play("jump")
 		
 
+	
+	var objectTouched := get_last_slide_collision()
+	
+	if objectTouched:
+		var collider := objectTouched.get_collider()
+		if collider and collider.is_in_group("Danger"):
+				isDead = true
+				GlobalPoints.lose()
+				animated_sprite_2d.play("death")
+				
+
+	
 	move_and_slide()
 	
 

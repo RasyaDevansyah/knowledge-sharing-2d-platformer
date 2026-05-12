@@ -50,10 +50,14 @@ script = ExtResource("1_ibu7b")
 [node name="WinUI" type="Control" parent="WinLoseUI" unique_id=927338066]
 visible = false
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchor_bottom = 0.5
+offset_left = -583.0
+offset_right = -583.0
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Title" type="Label" parent="WinLoseUI/WinUI" unique_id=36258009]
@@ -109,10 +113,14 @@ text = "Back To Menu"
 [node name="LoseUI" type="Control" parent="WinLoseUI" unique_id=947062076]
 visible = false
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchor_bottom = 0.5
+offset_left = -583.0
+offset_right = -583.0
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Title" type="Label" parent="WinLoseUI/LoseUI" unique_id=1749888874]
