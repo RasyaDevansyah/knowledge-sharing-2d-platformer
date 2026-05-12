@@ -2,6 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://dao4qtye80lgt" path="res://Assets/Background/Green.png" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://cd5wf1rder236" path="res://Assets/Menu/Levels/01.png" id="2_48xlc"]
+[ext_resource type="Script" uid="uid://b75ql7o4cq7kv" path="res://Scenes/quit_button.gd" id="2_trj04"]
+[ext_resource type="Script" uid="uid://b283gybts22ap" path="res://Scenes/levels_ui.gd" id="3_16hvj"]
+[ext_resource type="Texture2D" uid="uid://2pfsgcix7tpn" path="res://Assets/Menu/Levels/02.png" id="3_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://vm7a6t125eor" path="res://Assets/Menu/Levels/03.png" id="4_trj04"]
+[ext_resource type="FontFile" uid="uid://c6xcyb4mcuetd" path="res://Fonts/Micro5-Regular.ttf" id="4_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://ba38afxjtjv88" path="res://Assets/Menu/Levels/04.png" id="5_16hvj"]
+[ext_resource type="Texture2D" uid="uid://cwn23d1r4fiqi" path="res://Assets/Menu/Levels/05.png" id="6_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://otyqemvgsbdr" path="res://Assets/Menu/Levels/06.png" id="7_t1dhk"]
+[ext_resource type="Texture2D" uid="uid://x05a5nv5rj1n" path="res://Assets/Menu/Levels/07.png" id="8_5egv6"]
 
 [sub_resource type="Animation" id="Animation_28flt"]
 resource_name = "Looping"
@@ -111,6 +120,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Title" type="Label" parent="MenuUI" unique_id=1103536240]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -347.0
+offset_right = 291.0
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.12941177, 0.12156863, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("4_vr1f0")
+theme_override_font_sizes/font_size = 139
+text = "Platform Adventure"
+uppercase = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuUI" unique_id=2059202668]
 layout_mode = 1
 anchors_preset = 8
@@ -137,23 +168,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_48xlc")
 text = "Quit"
-
-[node name="Label" type="Label" parent="MenuUI" unique_id=1103536240]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -287.0
-offset_top = -274.0
-offset_right = 287.0
-offset_bottom = -191.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Platform Adventure"
+script = ExtResource("2_trj04")
 
 [node name="LevelsUI" type="Control" parent="." unique_id=1232595552]
 visible = false
@@ -163,8 +178,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_16hvj")
 
-[node name="Label" type="Label" parent="LevelsUI" unique_id=1829931122]
+[node name="LevelSelectLabel" type="Label" parent="LevelsUI" unique_id=1829931122]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -172,32 +188,40 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -287.0
-offset_top = -274.0
+offset_top = -338.0
 offset_right = 287.0
-offset_bottom = -191.0
+offset_bottom = -255.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Platform Adventure"
+theme_override_colors/font_color = Color(0.12941177, 0.12156863, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = ExtResource("4_vr1f0")
+theme_override_font_sizes/font_size = 139
+text = "Level Select"
+horizontal_alignment = 1
+uppercase = true
 
-[node name="VBoxContainer" type="GridContainer" parent="LevelsUI" unique_id=1008068212]
+[node name="VBoxContainer2" type="VBoxContainer" parent="LevelsUI" unique_id=638432390]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -167.0
-offset_top = -99.0
-offset_right = 166.8999
-offset_bottom = 153.0
+offset_left = -383.0
+offset_top = -194.0
+offset_right = 383.0
+offset_bottom = 330.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Grid" type="GridContainer" parent="LevelsUI/VBoxContainer2" unique_id=1008068212]
+layout_mode = 2
 columns = 5
 
-[node name="Button" type="Button" parent="LevelsUI/VBoxContainer" unique_id=1058623875]
-custom_minimum_size = Vector2(100, 100)
+[node name="Level1" type="Button" parent="LevelsUI/VBoxContainer2/Grid" unique_id=1058623875]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxEmpty_1ehe0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ce3w2")
@@ -205,3 +229,84 @@ icon = ExtResource("2_48xlc")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Level2" type="Button" parent="LevelsUI/VBoxContainer2/Grid" unique_id=175037256]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ehe0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ce3w2")
+disabled = true
+icon = ExtResource("3_yhxw7")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Level3" type="Button" parent="LevelsUI/VBoxContainer2/Grid" unique_id=673394127]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ehe0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ce3w2")
+disabled = true
+icon = ExtResource("4_trj04")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Level4" type="Button" parent="LevelsUI/VBoxContainer2/Grid" unique_id=452874199]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ehe0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ce3w2")
+disabled = true
+icon = ExtResource("5_16hvj")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Level5" type="Button" parent="LevelsUI/VBoxContainer2/Grid" unique_id=743304495]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ehe0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ce3w2")
+disabled = true
+icon = ExtResource("6_vr1f0")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Level6" type="Button" parent="LevelsUI/VBoxContainer2/Grid" unique_id=1818267731]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ehe0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ce3w2")
+disabled = true
+icon = ExtResource("7_t1dhk")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Level7" type="Button" parent="LevelsUI/VBoxContainer2/Grid" unique_id=1214858098]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ehe0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ce3w2")
+disabled = true
+icon = ExtResource("8_5egv6")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BackButton" type="Button" parent="LevelsUI/VBoxContainer2" unique_id=1123885012]
+custom_minimum_size = Vector2(130, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
+text = "Back"
+
+[connection signal="pressed" from="MenuUI/VBoxContainer/PlayButton" to="MenuUI" method="hide"]
+[connection signal="pressed" from="MenuUI/VBoxContainer/PlayButton" to="LevelsUI" method="show"]
+[connection signal="pressed" from="MenuUI/VBoxContainer/QuitButton" to="MenuUI/VBoxContainer/QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="LevelsUI/VBoxContainer2/Grid/Level1" to="LevelsUI" method="change_level" binds= ["res://Scenes/level_1.tscn"]]
+[connection signal="pressed" from="LevelsUI/VBoxContainer2/BackButton" to="MenuUI" method="show"]
+[connection signal="pressed" from="LevelsUI/VBoxContainer2/BackButton" to="LevelsUI" method="hide"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="KnowledgeSharing2DPlatformer"
-run/main_scene="uid://bu6sq0m3t8ypx"
+run/main_scene="uid://b7sph8o8tax4g"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
