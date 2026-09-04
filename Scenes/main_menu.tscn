@@ -1,0 +1,315 @@
+[gd_scene format=3 uid="uid://b7sph8o8tax4g"]
+
+[ext_resource type="FontFile" uid="uid://cvmncad5vkucb" path="res://Assets/Micro5-Regular.ttf" id="1_16hvj"]
+[ext_resource type="Texture2D" uid="uid://cd5wf1rder236" path="res://Assets/Menu/Levels/01.png" id="1_cp0ys"]
+[ext_resource type="Script" uid="uid://b75ql7o4cq7kv" path="res://Scenes/quit_button.gd" id="1_yhxw7"]
+[ext_resource type="Script" uid="uid://dhruq2ut0dib0" path="res://Scenes/level_grid.gd" id="2_trj04"]
+[ext_resource type="Texture2D" uid="uid://2pfsgcix7tpn" path="res://Assets/Menu/Levels/02.png" id="2_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://vm7a6t125eor" path="res://Assets/Menu/Levels/03.png" id="3_trj04"]
+[ext_resource type="Texture2D" uid="uid://ba38afxjtjv88" path="res://Assets/Menu/Levels/04.png" id="4_16hvj"]
+[ext_resource type="Texture2D" uid="uid://cwn23d1r4fiqi" path="res://Assets/Menu/Levels/05.png" id="5_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://otyqemvgsbdr" path="res://Assets/Menu/Levels/06.png" id="6_t1dhk"]
+[ext_resource type="Texture2D" uid="uid://x05a5nv5rj1n" path="res://Assets/Menu/Levels/07.png" id="7_5egv6"]
+[ext_resource type="Texture2D" uid="uid://d1i2gdin7s63n" path="res://Assets/Background/Purple.png" id="11_vr1f0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vr1f0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.07058824, 0.21960784, 0.80784315)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1dhk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.07058824, 0.21960784, 0.80784315)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trj04"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16hvj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5egv6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.07058824, 0.21960784, 0.80784315)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Animation" id="Animation_xfk5q"]
+resource_name = "Looping"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Yellow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-299, -222), Vector2(-363, -158)]
+}
+
+[sub_resource type="Animation" id="Animation_7p6j4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../CanvasLayer/Yellow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-299, -222)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t1dhk"]
+_data = {
+&"Looping": SubResource("Animation_xfk5q"),
+&"RESET": SubResource("Animation_7p6j4")
+}
+
+[node name="MainMenu" type="Control" unique_id=937480542]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenuUI" type="Control" parent="." unique_id=2139795092]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainMenuUI" unique_id=1869506941]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = -295.5
+offset_right = 171.5
+offset_bottom = -213.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.12941177, 0.12156863, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_16hvj")
+theme_override_font_sizes/font_size = 81
+text = "Pixel Adventure"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuUI" unique_id=1007834155]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -122.0
+offset_right = 168.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="PlayButton" type="Button" parent="MainMenuUI/VBoxContainer" unique_id=1330147591]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vr1f0")
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="MainMenuUI/VBoxContainer" unique_id=447851299]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_t1dhk")
+text = "Quit"
+script = ExtResource("1_yhxw7")
+
+[node name="LevelSelectUI" type="Control" parent="." unique_id=1413877318]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LevelSelectUI" unique_id=598117219]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = -286.0
+offset_right = 171.5
+offset_bottom = -223.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.12941177, 0.12156863, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_16hvj")
+theme_override_font_sizes/font_size = 81
+text = "Level Select"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelectUI" unique_id=1489927851]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -112.0
+offset_right = 183.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="LevelGrid" type="GridContainer" parent="LevelSelectUI/VBoxContainer" unique_id=1891141615]
+layout_mode = 2
+columns = 5
+script = ExtResource("2_trj04")
+
+[node name="Level1" type="Button" parent="LevelSelectUI/VBoxContainer/LevelGrid" unique_id=1047691947]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_trj04")
+icon = ExtResource("1_cp0ys")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Level2" type="Button" parent="LevelSelectUI/VBoxContainer/LevelGrid" unique_id=115973458]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_16hvj")
+icon = ExtResource("2_yhxw7")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Level3" type="Button" parent="LevelSelectUI/VBoxContainer/LevelGrid" unique_id=292390920]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_16hvj")
+icon = ExtResource("3_trj04")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Level4" type="Button" parent="LevelSelectUI/VBoxContainer/LevelGrid" unique_id=2101495942]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_16hvj")
+icon = ExtResource("4_16hvj")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Level5" type="Button" parent="LevelSelectUI/VBoxContainer/LevelGrid" unique_id=11295364]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_16hvj")
+icon = ExtResource("5_vr1f0")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Level6" type="Button" parent="LevelSelectUI/VBoxContainer/LevelGrid" unique_id=132543518]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_16hvj")
+icon = ExtResource("6_t1dhk")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Level7" type="Button" parent="LevelSelectUI/VBoxContainer/LevelGrid" unique_id=1899841326]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_16hvj")
+icon = ExtResource("7_5egv6")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BackButton" type="Button" parent="LevelSelectUI/VBoxContainer" unique_id=1013836207]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_5egv6")
+text = "Back"
+
+[node name="Yellow" type="TextureRect" parent="." unique_id=485957264]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -334.33914
+offset_top = -186.66086
+offset_right = 358.9944
+offset_bottom = 203.33911
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("11_vr1f0")
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=337356838]
+libraries/ = SubResource("AnimationLibrary_t1dhk")
+autoplay = &"Looping"
+
+[connection signal="pressed" from="MainMenuUI/VBoxContainer/PlayButton" to="MainMenuUI" method="hide"]
+[connection signal="pressed" from="MainMenuUI/VBoxContainer/PlayButton" to="LevelSelectUI" method="show"]
+[connection signal="pressed" from="MainMenuUI/VBoxContainer/QuitButton" to="MainMenuUI/VBoxContainer/QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="LevelSelectUI/VBoxContainer/LevelGrid/Level1" to="LevelSelectUI/VBoxContainer/LevelGrid" method="select_level" binds= ["res://Scenes/level_1.tscn"]]
+[connection signal="pressed" from="LevelSelectUI/VBoxContainer/BackButton" to="MainMenuUI" method="show"]
+[connection signal="pressed" from="LevelSelectUI/VBoxContainer/BackButton" to="LevelSelectUI" method="hide"]
