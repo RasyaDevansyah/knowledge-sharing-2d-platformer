@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://62txtqpllt6j"]
+
+[ext_resource type="FontFile" path="res://Fonts/Micro5-Regular.ttf" id="1_b2w3n"]
+[ext_resource type="Script" path="res://Scenes/win_lose_ui.gd" id="1_ibu7b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibu7b"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.12941177, 0.12156863, 0.1882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jijcf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.12941177, 0.12156863, 0.1882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=715446289]
+
+[node name="WinLoseUI" type="Control" parent="." unique_id=1733717141]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ibu7b")
+
+[node name="WinUI" type="Control" parent="WinLoseUI" unique_id=927338066]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -583.0
+offset_right = -583.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="WinLoseUI/WinUI" unique_id=36258009]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -312.0
+offset_right = 287.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.12941177, 0.12156863, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("1_b2w3n")
+theme_override_font_sizes/font_size = 139
+text = "You Win!"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinLoseUI/WinUI" unique_id=1469684682]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.05005
+offset_top = -57.0
+offset_right = 236.05005
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="RetryButton" type="Button" parent="WinLoseUI/WinUI/VBoxContainer" unique_id=1616938917]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_ibu7b")
+text = "Retry"
+
+[node name="MenuButton" type="Button" parent="WinLoseUI/WinUI/VBoxContainer" unique_id=1547251318]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_jijcf")
+text = "Back To Menu"
+
+[node name="LoseUI" type="Control" parent="WinLoseUI" unique_id=947062076]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -583.0
+offset_right = -583.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="WinLoseUI/LoseUI" unique_id=1749888874]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -312.0
+offset_right = 287.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.12941177, 0.12156863, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("1_b2w3n")
+theme_override_font_sizes/font_size = 139
+text = "You Lose!"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinLoseUI/LoseUI" unique_id=1218032180]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.05005
+offset_top = -57.0
+offset_right = 236.05005
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="RetryButton" type="Button" parent="WinLoseUI/LoseUI/VBoxContainer" unique_id=912448736]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_ibu7b")
+text = "Retry"
+
+[node name="MenuButton" type="Button" parent="WinLoseUI/LoseUI/VBoxContainer" unique_id=759302221]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_jijcf")
+text = "Back To Menu"
+
+[connection signal="pressed" from="WinLoseUI/WinUI/VBoxContainer/RetryButton" to="WinLoseUI" method="_on_retry_button_pressed"]
+[connection signal="pressed" from="WinLoseUI/WinUI/VBoxContainer/MenuButton" to="WinLoseUI" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="WinLoseUI/LoseUI/VBoxContainer/RetryButton" to="WinLoseUI" method="_on_retry_button_pressed"]
+[connection signal="pressed" from="WinLoseUI/LoseUI/VBoxContainer/MenuButton" to="WinLoseUI" method="_on_menu_button_pressed"]
